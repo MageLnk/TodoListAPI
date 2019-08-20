@@ -8,20 +8,20 @@ const InputModal = () => {
             {({ store, actions }) => {
                 return (
                     <div className="row">
-                        <div className="col-md-12">
+                        <div className="col-md-6">
                             <p>No olvides la fecha!</p>
                         </div>
-                        <div className="col-md-7">
+                        <div className="col-md-12">
                             <input
                                 type="text"
                                 className="form-control"
-                                id="inputTodo"
+                                id="actividadTodo"
                                 placeholder="Ingrese su Todo"
-                                name="inputTodo"
-                                required
+                                name="actividadTodo"
+                                onChange={e => actions.obtenerInfo(e)}
                             />
                         </div>
-                        <div className="col-md-5">
+                        <div className="col-md-12">
                             <Tiempo />
                         </div>
                     </div>
@@ -32,6 +32,3 @@ const InputModal = () => {
 }
 
 export default InputModal;
-
-{/*onChange={e => this.actioncontext.obtenerDataCamp(e)
-                                                */}
