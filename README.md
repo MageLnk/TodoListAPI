@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue hecho a petición de GePro para una prueba técnica, en la cual la solicitud fue una petición de hacer una aplicación web que almacene una actividad Todo, la guarde y traiga a través de una API. 
+
+Decidí hacerlo en React, con una API creada en NodeJS conectada a una base de datos en MySQL.
+
+Hay funcionalidades demás que el ejercició original en si no solicitó, pero los agregué igual en caso de una posible mejora a futuro en este mismo ejercicio por mi parte.
 
 ## Available Scripts
 
