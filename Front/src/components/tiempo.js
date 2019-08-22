@@ -5,14 +5,14 @@ const Tiempo = () => {
   return (
     <Context.Consumer>
       {({ store, actions }) => {
-        let actioncontext = actions;
-        let storecontext = store;
+        //let actioncontext = actions;
+        //let storecontext = store;
         return (
           <div className="col-md-12">
             <p>Eliga fecha de vencimiento:</p>
             <input
               type="date"
-              name="fechaVencimiento" 
+              name="time"
               onChange={e => actions.obtenerInfo(e)}
             >
             </input>

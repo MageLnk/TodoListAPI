@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import { Context } from "../store/appContext";
 import { FaCheck, FaClock, FaTimesCircle } from 'react-icons/fa';
 import "../style/home.css";
 import Modali, { useModali } from 'modali';
 import InputModal from "../components/inputModal"
+import PropTypes from "prop-types";
+
 let actioncontext = null;
 let storecontext = null;
-let startDate = "";
 
-const Home = () => {
+const Home = props => {
 	const [modalAgregar, toggleCompleteModal] = useModali({
 		animated: true,
 		title: 'Ingrese una actividad por hacer',
@@ -22,19 +23,36 @@ const Home = () => {
 			<Modali.Button
 				label="Agregar"
 				isStyleDefault
-				onClick={() => actioncontext.funcionAux()}
+				onClick={() => actioncontext.mandarTodo(storecontext.inputsFinal)}
 			/>,
 		],
 	});
-	function compareDate() {  
-		let todayDate = new Date(); //Today Date  
-		let dateOne = new Date(storecontext.inputsFinal.fechaVencimiento);  
-		if (todayDate > dateOne) {  
-			 alert("Today Date is greater than Date One.");
-		 }else {
-			 alert("Date One is greater.");
-		 }
-	 }  
+	useEffect(() => {
+		actioncontext.obtenerTodo()
+	  }, []);
+	function checkIcon (fecha, estado, id) {
+		//console.log("Debería recibir el tiempo, el estado y el ID antes de los IF", fecha, estado, id);
+		if (actioncontext.compararFechas(fecha, estado, id) === "2") {
+			return <FaTimesCircle />
+		} else if (actioncontext.compararFechas(fecha, estado, id) === "1") {
+			return <FaClock />
+		}
+	}
+	function obtenerValorCajas(length){
+		//console.log(length);
+		let check = document.getElementsByClassName('checks');
+		let str = ' ';
+		console.log(check);
+		for (let i = 0; i<length;i++){
+			//console.log(check);
+		}
+//		for (let i = 0; i<length;i++){
+//			if(check[i].checked === true){
+//				str += check[i].value + " ";
+//			}
+//		}
+		alert (str)
+	}
 	return (
 		<Context.Consumer>
 			{({ store, actions }) => {
@@ -45,21 +63,20 @@ const Home = () => {
 						<div className="contenedorcentral container" key={index}>
 							<div className="row">
 								<div className="col-md-12">
-									{console.log("Algo", compareDate())}
 									<h6>Actividad Todo</h6>
-									<p>{arrayTodo.actividadTodo}</p>
+									<p>{arrayTodo.usernametodo}</p>
 								</div>
 								<div className="container">
 									<div className="row">
 										<div className="col-md-4">
-											<input type="checkbox" name="vehicle" value="1"></input>
+											<input type="checkbox" className="checks" value="3"></input>
 										</div>
 										<div className="col-md-4">
 											<h6>Tiene hasta el:</h6>
-											<p>{arrayTodo.fechaVencimiento}</p>
+											<p>{arrayTodo.time}</p>
 										</div>
 										<div className="col-md-4">
-											<FaClock />
+											{checkIcon(arrayTodo.time, arrayTodo.estado, arrayTodo.id)}
 										</div>
 									</div>
 								</div>
@@ -75,7 +92,9 @@ const Home = () => {
 						<div className="container">
 							<div className="row">
 								<div className="col-md-4">
-									<p>Seleccionador</p>
+								<button onClick={obtenerValorCajas(TodoListArray.length)}>
+									Completar actividades seleccionadas
+      							</button>
 								</div>
 								<div className="col-md-2 offset-6">
 									<p>Filtro</p>
@@ -99,5 +118,9 @@ const Home = () => {
 		</Context.Consumer>
 	);
 }
+Home.propTypes = {
+	match: PropTypes.any,
+	history: PropTypes.any
+};
 
 export default Home;

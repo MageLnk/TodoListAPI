@@ -15,9 +15,9 @@ const InputModal = () => {
                             <input
                                 type="text"
                                 className="form-control"
-                                id="actividadTodo"
+                                id="usernametodo"
                                 placeholder="Ingrese su Todo"
-                                name="actividadTodo"
+                                name="usernametodo"
                                 onChange={e => actions.obtenerInfo(e)}
                             />
                         </div>
