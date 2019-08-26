@@ -82,6 +82,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					estado: "1"
 				}
 				setStore({ inputsFinal: oldStore });
+			},
+			obtenerValorCajas : (length) =>{
+				console.log(length);
+				let check = document.getElementsByClassName('checks');
+				let str = ' ';
+				console.log(check);
+				for (let i = 0; i<length;i++){
+					//console.log(check);
+				}
+		//		for (let i = 0; i<length;i++){
+		//			if(check[i].checked === true){
+		//				str += check[i].value + " ";
+		//			}
+		//		}
+				//alert (str)
 			}
 		}
 	};

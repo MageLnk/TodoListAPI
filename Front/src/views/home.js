@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Context } from "../store/appContext";
-import { FaCheck, FaClock, FaTimesCircle } from 'react-icons/fa';
+import { FaCheck, FaClock, FaTimesCircle, FaCommentDollar } from 'react-icons/fa';
+import Box from "../components/box";
 import "../style/home.css";
 import Modali, { useModali } from 'modali';
 import InputModal from "../components/inputModal"
@@ -38,21 +39,6 @@ const Home = props => {
 			return <FaClock />
 		}
 	}
-	function obtenerValorCajas(length){
-		//console.log(length);
-		let check = document.getElementsByClassName('checks');
-		let str = ' ';
-		console.log(check);
-		for (let i = 0; i<length;i++){
-			//console.log(check);
-		}
-//		for (let i = 0; i<length;i++){
-//			if(check[i].checked === true){
-//				str += check[i].value + " ";
-//			}
-//		}
-		alert (str)
-	}
 	return (
 		<Context.Consumer>
 			{({ store, actions }) => {
@@ -69,7 +55,7 @@ const Home = props => {
 								<div className="container">
 									<div className="row">
 										<div className="col-md-4">
-											<input type="checkbox" className="checks" value="3"></input>
+											<Box />
 										</div>
 										<div className="col-md-4">
 											<h6>Tiene hasta el:</h6>
@@ -92,7 +78,7 @@ const Home = props => {
 						<div className="container">
 							<div className="row">
 								<div className="col-md-4">
-								<button onClick={obtenerValorCajas(TodoListArray.length)}>
+								<button onClick={console.log("Llamar a la función")}>
 									Completar actividades seleccionadas
       							</button>
 								</div>
