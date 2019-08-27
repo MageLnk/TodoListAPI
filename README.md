@@ -7,7 +7,7 @@ Hay funcionalidades demás que el ejercició original en si no solicitó, pero l
 ## INSTRUCCIONES
 ----------- Primero
 
-Abrir el archivo, dirigirse a la ruta './Front' y ejecutar dos comandos.
+Abrir una consola y dirigirse a la ruta './Front' y ejecutar dos comandos.
 
 ### 'npm install'
 
@@ -19,7 +19,7 @@ Con eso, el front basado en REACT estará funcionando.
 
 ----------- Segundo
 
-Abrir el archivo, dirigirse a la ruta './Back' y ejecutar dos comandos.
+En otra consola, dirigirse a la ruta './Back' y ejecutar dos comandos.
 
 ### 'npm install'
 
