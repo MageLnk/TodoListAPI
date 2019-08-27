@@ -30,8 +30,8 @@ const Home = props => {
 	});
 	useEffect(() => {
 		actioncontext.obtenerTodo()
-	  }, []);
-	function checkIcon (fecha, estado, id) {
+	}, []);
+	function checkIcon(fecha, estado, id) {
 		//console.log("Debería recibir el tiempo, el estado y el ID antes de los IF", fecha, estado, id);
 		if (actioncontext.compararFechas(fecha, estado, id) === "2") {
 			return <FaTimesCircle />
@@ -78,12 +78,23 @@ const Home = props => {
 						<div className="container">
 							<div className="row">
 								<div className="col-md-4">
-								<button onClick={console.log("Llamar a la función")}>
-									Completar actividades seleccionadas
-      							</button>
+									<button onClick={console.log("Llamar a la función")}>
+										Completar actividades seleccionadas
+      								</button>
 								</div>
 								<div className="col-md-2 offset-6">
-									<p>Filtro</p>
+									<div className="btn-group">
+										<button type="button" className="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Filtro
+  										</button>
+										<div className="dropdown-menu">
+											<button onClick={console.log("Llamar a la función en el dropdown")}>
+												Orden de creación
+      										</button>
+											<p className="dropdown-item">Pendientes</p>
+											<p className="dropdown-item">Atrasadas</p>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

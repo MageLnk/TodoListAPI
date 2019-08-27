@@ -7,7 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				usernametodo: "",
 				time: "",
 				estado: "1"
-			}
+			},
+			orden: "1"
 		},
 		actions: {
 			obtenerInfo: e => {
@@ -16,6 +17,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let oldStore = store.inputsFinal;
 				oldStore[name] = e.target.value;
 				setStore({ inputsFinal: oldStore });
+			},
+			chanceOrder: e => {
+				const store = getStore();
+				let oldStore = e;
+				setStore({ orden: oldStore });
 			},
 			obtenerTodo: e => {
 				// const store = getStore();
@@ -85,9 +91,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			obtenerValorCajas : (length) =>{
 				console.log(length);
-				let check = document.getElementsByClassName('checks');
+				// let check = document.getElementsByClassName('checks');
 				let str = ' ';
-				console.log(check);
+				//console.log(check);
 				for (let i = 0; i<length;i++){
 					//console.log(check);
 				}
